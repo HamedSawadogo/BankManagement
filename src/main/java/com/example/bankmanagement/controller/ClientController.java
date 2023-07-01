@@ -2,7 +2,9 @@ package com.example.bankmanagement.controller;
 
 import com.example.bankmanagement.model.Client;
 import com.example.bankmanagement.model.dtos.ClientDTO;
+import com.example.bankmanagement.model.dtos.OperationDto;
 import com.example.bankmanagement.service.ClientServiceImpl;
+import com.example.bankmanagement.service.OperationServiveImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -13,11 +15,27 @@ public class ClientController {
     @Autowired
     private ClientServiceImpl clientService;
 
+    @Autowired
+    private OperationServiveImpl operationServive;
 
+    @GetMapping("/api/client/name/{name}")
+    public  ClientDTO getClientByName(@PathVariable("name")String clientName){
+        System.err.println(clientName);
+        return  this.clientService.getClientBYname(clientName);
+    }
+    @PostMapping("/api/client/operation/{id}")
+    public OperationDto addOperationToClient(@PathVariable("id")Long clientId,@RequestBody  OperationDto operationDto){
+
+        ClientDTO clientDTO=this.clientService.findClientById(clientId);
+        operationDto.setClient(clientDTO);
+        this.operationServive.addOperation(operationDto);
+        clientDTO.getOperations().add(operationDto);
+
+        this.clientService.addclient(clientDTO);
+        return  operationDto;
+    }
     @PostMapping("/api/add")
     public  ClientDTO addClient(@RequestBody  ClientDTO clientDTO){
-         System.out.println(clientDTO.getNom());
-         System.out.println(clientDTO.getTelephone());
          return  this.clientService.addclient(clientDTO);
     }
     @GetMapping("/api/clients")

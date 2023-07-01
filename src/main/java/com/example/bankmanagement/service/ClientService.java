@@ -11,7 +11,7 @@ public interface ClientService {
     List<ClientDTO>getAllClients();
     List<ClientDTO>addAllClients(List<Client>clients);
     void deleteClientBYId(Long clientId);
-
+    ClientDTO getClientBYname(String clientName);
     ClientDTO convertEntityToDto(Client client);
     Client convertDtoToEntity(ClientDTO clientDTO);
 

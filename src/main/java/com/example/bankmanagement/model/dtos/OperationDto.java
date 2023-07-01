@@ -2,6 +2,7 @@ package com.example.bankmanagement.model.dtos;
 
 
 import com.example.bankmanagement.enums.OperationType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,5 +23,6 @@ public class OperationDto {
     @Enumerated(EnumType.STRING)
     private OperationType type;
 
-    //private ClientDTO client;
+    @JsonIgnore
+    private ClientDTO client;
 }

@@ -2,6 +2,7 @@ package com.example.bankmanagement;
 import com.example.bankmanagement.enums.OperationType;
 import com.example.bankmanagement.enums.StatusType;
 import com.example.bankmanagement.model.*;
+import com.example.bankmanagement.model.dtos.ClientDTO;
 import com.example.bankmanagement.service.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +24,13 @@ import java.util.concurrent.Callable;
 
 public class BankManagementApplication implements CommandLineRunner {
 
-
 	public static void main(String[] args) {
 		SpringApplication.run(BankManagementApplication.class, args);
 	}
 	@Override
 	public void run(String... args) throws Exception {
-
+		//ClientDTO c=this.clientService.getClientBYname("Hamed");
+		//System.out.println(c.getTelephone());
 	}
 
 	@Bean

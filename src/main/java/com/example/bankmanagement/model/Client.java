@@ -34,13 +34,11 @@ public class Client implements Serializable {
     private String telephone;
 
     //liste des comptes du client
-    @OneToMany(fetch = FetchType.LAZY,
-            orphanRemoval = true,
-    cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Compte>comptes;
 
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY,orphanRemoval = true)
     private List<Operation>operations;
 
     //toString

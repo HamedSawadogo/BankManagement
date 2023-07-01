@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -16,5 +17,5 @@ public class ClientDTO {
     private String email;
     private String telephone;
    // private List<Compte>comptes;
-    private List<OperationDto>operations;
+    private List<OperationDto>operations=new ArrayList<>();
 }

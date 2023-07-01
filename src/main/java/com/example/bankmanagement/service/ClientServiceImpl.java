@@ -59,20 +59,10 @@ public class ClientServiceImpl implements ClientService{
         this.clientRepository.deleteById(clientId);
     }
 
-    private List<OperationDto>getClientsOperationsDTO(Long clientId){
-        List<Operation>operationList=new ArrayList<>();
-        operationList=this.operationServive.getOperationstByClientId(clientId);
-
-        List<OperationDto>operationDtos=new ArrayList<>();
-        for (Operation operation:operationList){
-            OperationDto dto=new OperationDto();
-            dto.setDate(operation.getDate());
-            dto.setMontant(operation.getMontant());
-            dto.setId(operation.getId());
-            dto.setType(operation.getType());
-            operationDtos.add(dto);
-        }
-        return operationDtos;
+    @Override
+    public ClientDTO getClientBYname(String clientName) {
+        Client client=this.clientRepository.findClientByNom(clientName);
+        return this.modelMapper.map(client,ClientDTO.class);
     }
     @Override
     public ClientDTO convertEntityToDto(Client client) {
