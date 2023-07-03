@@ -16,6 +16,6 @@ public class ClientDTO {
     private String nom;
     private String email;
     private String telephone;
-   // private List<Compte>comptes;
+    private List<CompteDto>comptes;
     private List<OperationDto>operations=new ArrayList<>();
 }

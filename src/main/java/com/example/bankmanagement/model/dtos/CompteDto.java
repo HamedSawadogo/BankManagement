@@ -17,4 +17,6 @@ public class CompteDto {
 
     @Enumerated(EnumType.STRING)
     private StatusType statusType;
+
+    private String type;
 }

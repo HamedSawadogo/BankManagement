@@ -72,8 +72,7 @@ public class ClientServiceImpl implements ClientService{
 
     @Override
     public Client convertDtoToEntity(ClientDTO clientDTO) {
-        Client client=new Client();
-        client=modelMapper.map(clientDTO,Client.class);
+        Client client=modelMapper.map(clientDTO,Client.class);
         return client;
     }
 

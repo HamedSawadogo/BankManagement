@@ -1,6 +1,4 @@
 package com.example.bankmanagement.controller;
-
-import com.example.bankmanagement.model.Client;
 import com.example.bankmanagement.model.dtos.ClientDTO;
 import com.example.bankmanagement.model.dtos.OperationDto;
 import com.example.bankmanagement.service.ClientServiceImpl;
@@ -20,7 +18,6 @@ public class ClientController {
 
     @GetMapping("/api/client/name/{name}")
     public  ClientDTO getClientByName(@PathVariable("name")String clientName){
-        System.err.println(clientName);
         return  this.clientService.getClientBYname(clientName);
     }
     @PostMapping("/api/client/operation/{id}")
